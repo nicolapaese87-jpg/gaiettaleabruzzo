@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Abruzzo · 18–22 Agosto 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1E2A22;
+  --stone:#EDEAE0;
+  --stone-2:#E2DED0;
+  --card:#FBFAF6;
+  --pine:#2F4B3C;
+  --pine-2:#3E6353;
+  --moss:#7C9B7E;
+  --sky:#3E6E8E;
+  --sky-2:#5A88A6;
+  --clay:#A85A38;
+  --clay-2:#C97A50;
+  --gold:#B98A3D;
+  --line:#D8D2C2;
+  --danger:#A23B2E;
+  --shadow: 0 2px 10px rgba(30,42,34,.08);
+  --radius: 14px;
+  color-scheme: light;
+}
+*{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
+html,body{margin:0;padding:0;}
+body{
+  background:var(--stone);
+  color:var(--ink);
+  font-family:'Inter',system-ui,sans-serif;
+  padding-bottom:90px;
+  min-height:100vh;
+}
+.mono{font-family:'IBM Plex Mono',monospace;}
+.display{font-family:'Fraunces',serif;}
+
+/* ---------- Header ---------- */
+header.top{
+  position:sticky; top:0; z-index:40;
+  background:var(--pine);
+  color:#F3EFE3;
+  padding:14px 16px 0 16px;
+  box-shadow:var(--shadow);
+}
+.top-row{
+  display:flex; align-items:flex-start; justify-content:space-between;
+  gap:10px;
+}
+.trip-title{
+  font-family:'Fraunces',serif;
+  font-weight:700;
+  font-size:22px;
+  letter-spacing:.02em;
+  line-height:1.05;
+  margin:0;
+}
+.trip-sub{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px;
+  letter-spacing:.06em;
+  opacity:.75;
+  margin-top:3px;
+  text-transform:uppercase;
+}
+.menu-btn{
+  background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.25);
+  color:#F3EFE3;
+  border-radius:10px;
+  padding:8px 10px;
+  font-size:13px;
+  font-family:'Inter',sans-serif;
+  display:flex; align-items:center; gap:6px;
+  cursor:pointer;
+}
+.menu-btn:active{background:rgba(255,255,255,.2);}
+
+/* ridge divider */
+.ridge{width:100%; height:22px; display:block; margin-top:12px;}
+
+/* day tabs */
+.tabs{
+  display:flex; gap:8px; overflow-x:auto;
+  padding:10px 12px 12px 12px;
+  scrollbar-width:none;
+}
+.tabs::-webkit-scrollbar{display:none;}
+.tab{
+  flex:0 0 auto;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:12px;
+  padding:8px 12px;
+  color:#F3EFE3;
+  text-align:left;
+  cursor:pointer;
+  min-width:74px;
+}
+.tab .d{font-family:'IBM Plex Mono',monospace; font-size:10px; opacity:.7; letter-spacing:.05em;}
+.tab .t{font-family:'Fraunces',serif; font-weight:600; font-size:14px; margin-top:2px;}
+.tab.active{
+  background:#F3EFE3;
+  color:var(--pine);
+  border-color:#F3EFE3;
+}
+.tab.active .d{opacity:.55; color:var(--pine);}
+
+/* ---------- Overview panel ---------- */
+.overview-wrap{padding:12px 16px 0 16px;}
+.overview-toggle{
+  width:100%;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:12px 14px;
+  display:flex; align-items:center; justify-content:space-between;
+  font-family:'Inter',sans-serif; font-size:14px; font-weight:600;
+  color:var(--pine);
+  cursor:pointer;
+}
+.overview-body{
+  display:none;
+  background:var(--card);
+  border:1px solid var(--line); border-top:none;
+  border-radius:0 0 var(--radius) var(--radius);
+  margin-top:-1px;
+  padding:6px 14px 12px 14px;
+}
+.overview-body.open{display:block;}
+.ov-day{
+  display:flex; gap:10px; padding:10px 0; border-top:1px dashed var(--line);
+}
+.ov-day:first-child{border-top:none;}
+.ov-dot{width:8px;height:8px;border-radius:50%;margin-top:6px; flex:0 0 auto;}
+.ov-txt b{font-family:'Fraunces',serif; font-size:14px;}
+.ov-txt div{font-size:12.5px; color:#5B6459; margin-top:2px;}
+
+/* ---------- Main content ---------- */
+main{padding:16px; max-width:640px; margin:0 auto;}
+.day-head{margin-bottom:14px;}
+.day-eyebrow{
+  font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.08em;
+  text-transform:uppercase; color:#6B7568;
+}
+.day-title{
+  font-family:'Fraunces',serif; font-weight:700; font-size:28px;
+  margin:2px 0 4px 0; line-height:1.05;
+}
+.day-route{font-size:13.5px; color:#5B6459;}
+.badge-row{display:flex; gap:8px; margin-top:10px; align-items:center; flex-wrap:wrap;}
+.rating{
+  font-family:'IBM Plex Mono',monospace; font-size:12px;
+  background:var(--pine); color:#F3EFE3; padding:4px 9px; border-radius:20px;
+}
+.progress-pill{
+  font-family:'IBM Plex Mono',monospace; font-size:12px;
+  border:1px solid var(--line); padding:4px 9px; border-radius:20px; color:#5B6459;
+}
+.goal-box{
+  background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+  padding:12px 14px; margin-top:12px; font-size:13.5px; line-height:1.5; color:#3A4239;
+  border-left:4px solid var(--accent, var(--pine));
+}
+
+/* section */
+.section{margin-top:22px;}
+.section-title{
+  font-family:'Fraunces',serif; font-weight:600; font-size:16px;
+  display:flex; align-items:center; gap:8px; margin-bottom:10px;
+  color:var(--pine);
+}
+.section-title .n{
+  font-family:'IBM Plex Mono',monospace; font-size:11px; color:#8B9284;
+  margin-left:auto;
+}
+
+/* timeline */
+.timeline{position:relative; padding-left:2px;}
+.tl-item{
+  display:flex; gap:12px; position:relative; padding-bottom:16px;
+}
+.tl-item:last-child{padding-bottom:0;}
+.tl-rail{
+  display:flex; flex-direction:column; align-items:center; flex:0 0 auto; width:20px;
+}
+.tl-dot{
+  width:11px; height:11px; border-radius:50%;
+  background:var(--card); border:2px solid var(--accent, var(--pine));
+  margin-top:4px;
+}
+.tl-dot.checked{background:var(--accent, var(--pine));}
+.tl-line{flex:1; width:2px; background:var(--line); margin-top:2px;}
+.tl-body{flex:1; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px;}
+.tl-time{font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--accent,var(--pine)); font-weight:600;}
+.tl-title{font-size:14.5px; font-weight:600; margin-top:2px;}
+.tl-desc{font-size:13px; color:#5B6459; margin-top:4px; line-height:1.5;}
+.tl-actions{display:flex; gap:8px; margin-top:8px; flex-wrap:wrap;}
+.chip-btn{
+  font-size:12px; border:1px solid var(--line); background:#fff; color:var(--pine);
+  padding:5px 10px; border-radius:20px; cursor:pointer; display:inline-flex; align-items:center; gap:5px;
+  text-decoration:none;
+}
+.chip-btn.done{background:var(--pine); color:#F3EFE3; border-color:var(--pine);}
+.chip-btn.map{color:var(--sky);}
+
+/* restaurant card */
+.food-card{
+  background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+  padding:14px; margin-bottom:10px; border-left:4px solid var(--clay);
+}
+.food-name{font-family:'Fraunces',serif; font-weight:600; font-size:16px;}
+.food-meta{font-family:'IBM Plex Mono',monospace; font-size:11px; color:#8B6142; margin-top:2px;}
+.food-desc{font-size:13.5px; color:#4A4038; margin-top:6px; line-height:1.5;}
+
+/* packing chips */
+.chip-grid{display:flex; flex-wrap:wrap; gap:8px;}
+.pack-chip{
+  border:1px solid var(--line); background:var(--card);
+  padding:8px 12px; border-radius:20px; font-size:13px; cursor:pointer;
+  display:flex; align-items:center; gap:6px;
+}
+.pack-chip.on{background:var(--pine); color:#F3EFE3; border-color:var(--pine);}
+.pack-chip.required{border-color:var(--clay); color:var(--clay); font-weight:600;}
+.pack-chip.required.on{background:var(--clay); color:#fff; border-color:var(--clay);}
+
+/* warning box */
+.warn-box{
+  background:#FBF1E9; border:1px solid #E7C8AE; border-left:4px solid var(--danger);
+  border-radius:12px; padding:12px 14px; font-size:13px; line-height:1.55; color:#5C2A1F;
+  margin-bottom:10px;
+}
+.warn-box b{color:var(--danger);}
+
+/* notes */
+textarea.note{
+  width:100%; min-height:70px; border:1px solid var(--line); border-radius:12px;
+  padding:10px 12px; font-family:'Inter',sans-serif; font-size:13.5px; background:var(--card);
+  resize:vertical; color:var(--ink);
+}
+.save-hint{font-size:11px; color:#8B9284; margin-top:5px; font-family:'IBM Plex Mono',monospace;}
+
+/* weather link */
+.weather-link{
+  display:inline-flex; align-items:center; gap:6px; font-size:13px; color:var(--sky);
+  text-decoration:none; border:1px solid var(--line); padding:7px 12px; border-radius:20px; background:var(--card);
+}
+
+/* editable goal box */
+textarea.goal-edit{
+  width:100%; background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+  padding:12px 14px; margin-top:12px; font-size:13.5px; line-height:1.5; color:#3A4239;
+  border-left:4px solid var(--accent, var(--pine));
+  font-family:'Inter',sans-serif; resize:vertical; min-height:60px;
+}
+
+/* editable packing */
+.pack-chip{position:relative; padding-right:12px;}
+.pack-chip .rm{
+  margin-left:4px; opacity:.6; font-weight:700;
+}
+.pack-add-row{display:flex; gap:8px; margin-top:10px;}
+.pack-add-row input{
+  flex:1; border:1px solid var(--line); border-radius:20px; padding:8px 14px;
+  font-family:'Inter',sans-serif; font-size:13px; background:var(--card); color:var(--ink);
+}
+.pack-add-row button{
+  border:1px solid var(--pine); background:var(--pine); color:#F3EFE3;
+  border-radius:20px; padding:8px 16px; font-size:13px; cursor:pointer; white-space:nowrap;
+}
+
+/* sync status */
+.sync-row{
+  display:flex; align-items:center; gap:6px; margin-top:8px;
+  font-family:'IBM Plex Mono',monospace; font-size:10.5px; opacity:.8;
+}
+.sync-dot{width:7px; height:7px; border-radius:50%; background:#8FBF9A; flex:0 0 auto;}
+.sync-dot.off{background:#D9A45C;}
+.sync-dot.err{background:#E06A55;}
+.sync-row button{
+  background:none; border:none; color:#F3EFE3; text-decoration:underline;
+  font-family:'IBM Plex Mono',monospace; font-size:10.5px; cursor:pointer; padding:0; opacity:.85;
+}
+
+/* settings form */
+.form-row{margin-bottom:14px;}
+.form-row label{display:block; font-size:12.5px; font-weight:600; margin-bottom:5px; color:var(--pine);}
+.form-row input{
+  width:100%; border:1px solid var(--line); border-radius:10px; padding:10px 12px;
+  font-family:'Inter',sans-serif; font-size:13.5px; background:var(--card); color:var(--ink);
+}
+.form-hint{font-size:11.5px; color:#8B9284; margin-top:5px; line-height:1.5;}
+.form-hint a{color:var(--sky);}
+.form-btn{
+  width:100%; background:var(--pine); color:#F3EFE3; border:none; border-radius:10px;
+  padding:12px; font-size:14px; font-weight:600; cursor:pointer; margin-top:6px;
+}
+.form-btn.secondary{background:none; border:1px solid var(--line); color:var(--ink);}
+
+/* ---------- Overlay (48h / packing) ---------- */
+.overlay-bg{
+  position:fixed; inset:0; background:rgba(20,26,20,.5); z-index:60;
+  display:none; align-items:flex-end; justify-content:center;
+}
+.overlay-bg.open{display:flex;}
+.sheet{
+  background:var(--stone); width:100%; max-width:640px; max-height:88vh; overflow-y:auto;
+  border-radius:20px 20px 0 0; padding:18px 18px 26px 18px; animation:up .22s ease-out;
+}
+@keyframes up{from{transform:translateY(24px); opacity:0;} to{transform:translateY(0); opacity:1;}}
+.sheet-head{display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;}
+.sheet-title{font-family:'Fraunces',serif; font-weight:700; font-size:19px;}
+.close-btn{background:none;border:none;font-size:22px;color:#5B6459;cursor:pointer; line-height:1; padding:4px 8px;}
+.pre48-item{
+  display:flex; gap:12px; align-items:flex-start; padding:12px 0; border-top:1px dashed var(--line);
+}
+.pre48-item:first-child{border-top:none;}
+.chk{
+  width:22px; height:22px; border-radius:7px; border:2px solid var(--pine); flex:0 0 auto; margin-top:1px;
+  display:flex; align-items:center; justify-content:center; cursor:pointer; background:var(--card);
+}
+.chk.on{background:var(--pine);}
+.chk svg{display:none; width:13px; height:13px;}
+.chk.on svg{display:block;}
+.pre48-txt b{font-size:14px;}
+.pre48-txt div{font-size:12.5px; color:#5B6459; margin-top:2px; line-height:1.45;}
+
+/* ---------- Bottom bar ---------- */
+.bottombar{
+  position:fixed; bottom:0; left:0; right:0; z-index:50;
+  background:var(--card); border-top:1px solid var(--line);
+  padding:10px 16px calc(10px + env(safe-area-inset-bottom)) 16px;
+  display:flex; align-items:center; gap:12px;
+}
+.bb-track{flex:1; height:6px; background:var(--stone-2); border-radius:6px; overflow:hidden;}
+.bb-fill{height:100%; background:var(--pine); border-radius:6px; transition:width .25s ease;}
+.bb-label{font-family:'IBM Plex Mono',monospace; font-size:11px; color:#5B6459; white-space:nowrap;}
+
+@media(min-width:680px){
+  .day-title{font-size:32px;}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-row">
+    <div>
+      <p class="trip-title">Abruzzo</p>
+      <p class="trip-sub">18–22 agosto 2026 · L'Aquila · Fiat 500X</p>
+    </div>
+    <button class="menu-btn" id="menuBtn">☰ Menù</button>
+  </div>
+  <div class="sync-row" id="syncRow">
+    <span class="sync-dot off" id="syncDot"></span>
+    <span id="syncText">Caricamento...</span>
+    <button id="syncNowBtn">Aggiorna ora</button>
+  </div>
+  <div class="tabs" id="tabs"></div>
+</header>
+
+<div class="overview-wrap">
+  <button class="overview-toggle" id="ovToggle">
+    <span>Colpo d'occhio sul viaggio</span>
+    <span id="ovArrow">▾</span>
+  </button>
+  <div class="overview-body" id="ovBody"></div>
+</div>
+
+<main id="main"></main>
+
+<div class="bottombar">
+  <span class="bb-label" id="bbLabel">0/0</span>
+  <div class="bb-track"><div class="bb-fill" id="bbFill" style="width:0%"></div></div>
+  <span class="bb-label" id="bbTripLabel">Viaggio 0%</span>
+</div>
+
+<div class="overlay-bg" id="overlayBg">
+  <div class="sheet" id="sheetContent"></div>
+</div>
+
+<script>
+/* ============ DATA ============ */
+const DAYS = [
+{
+  id:1, date:"18 AGO", weekday:"Martedì", accent:"#6B7568", accentName:"rock",
+  title:"Campo Imperatore",
+  route:"Roma → Campo Imperatore → L'Aquila",
+  rating:"10/10",
+  goal:"Dedicarsi bene a Campo Imperatore, senza aggiungere borghi o attrazioni: è il modo migliore per aprire il viaggio.",
+  timeline:[
+    {t:"07:00", title:"Partenza da Roma", desc:"Roma → A24 → Assergi → Fonte Cerreto → Campo Imperatore. Considera 2h30–3h, traffico e soste comprese.", tag:"drive"},
+    {t:"09:30–10:00", title:"Arrivo, parcheggio al piazzale", desc:"Piazzale di Campo Imperatore, stazione di monte della funivia. Lasciate qui la 500X: da qui in poi tutto a piedi. Ostello e piazzale adiacente in lavori nell'estate 2026; restano i servizi igienici pubblici.", tag:"parking", maps:"Piazzale Campo Imperatore stazione funivia", checklist:true, id:"d1t1", label:"Parcheggio al piazzale"},
+    {t:"10:00–12:00", title:"Rifugio Duca degli Abruzzi", desc:"2.388 m, ~40 min di sola salita da Campo Imperatore, 1h20–1h40 A/R col ritorno. Salita moderata, difficoltà facile. Portare una felpa anche ad agosto — vista sulla Piana spettacolare.", tag:"trek", maps:"Rifugio Duca degli Abruzzi Campo Imperatore", checklist:true, id:"d1t2", label:"Salita al Rifugio Duca degli Abruzzi"},
+    {t:"12:00–13:15", title:"Passeggiata libera nella Piana", desc:"Tornati alla macchina, non ripartite: un'ora senza programma tra i prati. La Piana è molto esposta al sole e priva di ombra, per questo il trekking si fa la mattina.", tag:"free", checklist:true, id:"d1t3", label:"Passeggiata nella Piana"},
+    {t:"13:15", title:"Spostamento a Fonte Vetica", desc:"Verso il Ristoro Mucciante.", tag:"drive", maps:"Ristoro Mucciante Fonte Vetica"},
+    {t:"13:30–15:00", title:"Pranzo — Ristoro Mucciante", desc:"Si acquista carne, salumi e formaggi e si cucina da sé sulle fornacelle, tavoli all'aperto. Agosto è il periodo di picco: mettete in conto un po' di affollamento.", tag:"food", checklist:true, id:"d1t4", label:"Pranzo da Mucciante"},
+    {t:"15:00", title:"Rientro verso L'Aquila", desc:"", tag:"drive"},
+    {t:"16:30–17:00", title:"Arrivo in hotel", desc:"Check-in, doccia, riposo.", tag:"arrive", checklist:true, id:"d1t5", label:"Check-in hotel"},
+    {t:"Sera", title:"Cena libera", desc:"Passeggiata tranquilla, nessun'altra attrazione in programma.", tag:"free"},
+  ],
+  food:[{name:"Ristoro Mucciante", meta:"Fonte Vetica · aperto 09:00–19:00 tutti i giorni", desc:"Arrosticini, salsiccia, pecorino, salumi, bruschette, pane. Cucina autonoma sulle fornacelle. Pranzo leggero: c'è ancora strada e il rientro all'Aquila.", maps:"Ristoro Mucciante Fonte Vetica"}],
+  packExtra:[{id:"d1p1", label:"Felpa (obbligatoria in vetta)", required:true}],
+  warnings:["Strada di accesso a Campo Imperatore riaperta a maggio 2026, ma ostello e parte del piazzale sono in lavori per l'estate."],
+  weatherQuery:"meteo Campo Imperatore L'Aquila 18 agosto"
+},
+{
+  id:2, date:"19 AGO", weekday:"Mercoledì", accent:"#3E6353", accentName:"forest",
+  title:"Orfento & Rigopiano",
+  route:"L'Aquila → Valle dell'Orfento → Baita della Sceriffa → L'Aquila",
+  rating:"9,5/10",
+  goal:"La giornata bosco + acqua + gastronomia di montagna: un solo trekking, poi relax vero, senza correre da un sentiero all'altro.",
+  timeline:[
+    {t:"07:30", title:"Partenza verso Caramanico Terme", desc:"", tag:"drive"},
+    {t:"09:00", title:"Parcheggio Valle dell'Orfento", desc:"Zona Centro Visita, Caramanico Terme. Arrivate prima di iniziare: l'accesso alla Valle richiede la registrazione. Rete sentieri riaperta parzialmente, Scalelle percorribili a senso unico.", tag:"parking", maps:"Centro Visita Valle dell'Orfento Caramanico Terme", checklist:true, id:"d2t1", label:"Parcheggio e registrazione Orfento"},
+    {t:"09:15–11:45", title:"Sentiero delle Scalelle", desc:"Centro Visita → B6 → Scalelle → S → Ponte di Caramanico → rientro. ~4 km, 120 m dislivello, 1h30 tecnico; per voi 2–2h30 reali. Difficoltà E, escursionistico: scarpe da trekking, acqua, attenzione al fondo umido.", tag:"trek", checklist:true, id:"d2t2", label:"Sentiero delle Scalelle"},
+    {t:"12:00", title:"Caramanico → Rigopiano", desc:"", tag:"drive", maps:"Baita della Sceriffa Rigopiano Farindola"},
+    {t:"13:00–13:30", title:"Pranzo — Baita della Sceriffa", desc:"Nei boschi di faggio, tavoli all'aperto e fornacelle. SP37, Contrada Rigopiano, Farindola — con parcheggio.", tag:"food", checklist:true, id:"d2t3", label:"Pranzo alla Baita della Sceriffa"},
+    {t:"13:30–15:30", title:"Relax sotto i faggi", desc:"Volutamente lungo: caffè, passeggiata brevissima se va, niente fretta di ripartire.", tag:"free"},
+    {t:"15:30–17:00", title:"Pomeriggio libero a Rigopiano", desc:"Passeggiata breve oppure solo caffè e relax, secondo l'energia rimasta.", tag:"free", checklist:true, id:"d2t4", label:"Pomeriggio a Rigopiano"},
+    {t:"17:00", title:"Rientro verso L'Aquila", desc:"", tag:"drive"},
+    {t:"18:00–18:30", title:"Hotel", desc:"", tag:"arrive", checklist:true, id:"d2t5", label:"Rientro in hotel"},
+  ],
+  food:[{name:"Baita della Sceriffa", meta:"SP37, Contrada Rigopiano, Farindola · operativa metà giugno–fine settembre", desc:"Arrosticini, pecorino di Farindola, bruschette, salumi e formaggi; volendo agnello o salsiccia. Esperienza conviviale nel bosco, non una sosta veloce.", maps:"Baita della Sceriffa Rigopiano Farindola"}],
+  packExtra:[{id:"d2p1", label:"Scarpe da trekking (obbligatorie)", required:true}],
+  warnings:["Il sentiero delle Scalelle è a senso unico: non si torna indietro sullo stesso percorso.", "Vietato entrare nell'acqua dell'Orfento, anche solo i piedi: sanzione indicata di €300 a persona."],
+  weatherQuery:"meteo Caramanico Terme Farindola 19 agosto"
+},
+{
+  id:3, date:"20 AGO", weekday:"Giovedì", accent:"#3E6E8E", accentName:"lake",
+  title:"Scanno & Sagittario",
+  route:"L'Aquila → Scanno → Lago di San Domenico → Gole del Sagittario → L'Aquila",
+  rating:"10/10",
+  goal:"La giornata più varia del viaggio: lago, trekking facile, borgo, lago verde smeraldo e canyon, tutto senza correre.",
+  timeline:[
+    {t:"07:30", title:"Partenza verso Scanno", desc:"", tag:"drive"},
+    {t:"09:15", title:"Parcheggio al Lago di Scanno", desc:"Grande parcheggio turistico a pagamento presso il lago: evitate la carreggiata, ci sono multe segnalate per soste fuori area.", tag:"parking", maps:"Parcheggio Lago di Scanno", checklist:true, id:"d3t1", label:"Parcheggio Lago di Scanno"},
+    {t:"09:30–11:30", title:"Sentiero del Cuore", desc:"Lago → Eremo di Sant'Egidio → punto panoramico → ritorno. ~1h di salita più ritorno e soste. Difficoltà turistica, adatto anche a chi ha poca esperienza. Acqua, scarpe da trekking, cappello, crema solare.", tag:"trek", maps:"Eremo di Sant'Egidio Scanno", checklist:true, id:"d3t2", label:"Sentiero del Cuore"},
+    {t:"11:30–13:00", title:"Centro storico di Scanno", desc:"Parcheggio pubblico in zona periferica, poi a piedi: Piazza San Giovanni, chiese, vicoli, botteghe artigiane. Non entrate con la 500X nelle strade strette.", tag:"free", maps:"Piazza San Giovanni Scanno", checklist:true, id:"d3t3", label:"Centro storico di Scanno"},
+    {t:"13:00–14:15", title:"Pranzo a Scanno", desc:"Pranzo tipico ma senza dilungarsi troppo: l'obiettivo è ripartire entro le 14:30 per non arrivare tardi al Lago di San Domenico.", tag:"food", checklist:true, id:"d3t4", label:"Pranzo a Scanno"},
+    {t:"14:30", title:"Scanno → Lago di San Domenico", desc:"", tag:"drive"},
+    {t:"14:45–16:00", title:"Lago di San Domenico", desc:"Auto lungo la strada che costeggia il lago, poi a piedi verso il ponte. Ponte, lago color verde smeraldo, Eremo di San Domenico, passeggiata e foto — nessun trekking lungo necessario.", tag:"free", maps:"Lago di San Domenico Villalago", checklist:true, id:"d3t5", label:"Lago di San Domenico"},
+    {t:"16:00–17:30", title:"Gole del Sagittario", desc:"Parcheggio presso Anversa degli Abruzzi. Visita breve: vedere la gola, natura, panorama, rientrare — non un anello di 2–3 ore.", tag:"free", maps:"Gole del Sagittario Anversa degli Abruzzi", checklist:true, id:"d3t6", label:"Gole del Sagittario"},
+    {t:"17:30", title:"Rientro verso L'Aquila", desc:"", tag:"drive"},
+    {t:"~19:00", title:"Hotel", desc:"Cena tranquilla.", tag:"arrive", checklist:true, id:"d3t7", label:"Rientro in hotel"},
+  ],
+  food:[{name:"Pranzo a Scanno", meta:"13:00–14:15 circa", desc:"Cucina tipica, ma senza dilungarsi: c'è ancora il Lago di San Domenico da vedere con calma nel pomeriggio.", maps:"ristoranti Scanno centro"}],
+  packExtra:[{id:"d3p1", label:"Scarpe da trekking + acqua (Sentiero del Cuore)", required:true}],
+  warnings:["Non parcheggiate lungo la carreggiata al Lago di Scanno: multe segnalate di recente."],
+  weatherQuery:"meteo Scanno Villalago 20 agosto"
+},
+{
+  id:4, date:"21 AGO", weekday:"Venerdì", accent:"#A85A38", accentName:"canyon",
+  title:"Fara San Martino",
+  route:"L'Aquila → Fara San Martino → Gole → L'Aquila",
+  rating:"9,5/10",
+  goal:"La giornata Maiella, dedicata solo a Fara San Martino: niente Camosciara aggiunta solo per \"vedere anche quella\".",
+  timeline:[
+    {t:"07:30", title:"Partenza da L'Aquila", desc:"Direzione Fara San Martino.", tag:"drive"},
+    {t:"~09:15", title:"Parcheggio alle Gole", desc:"Area presso le sorgenti / imbocco delle Gole, vicino ai pastifici — a pagamento gran parte dell'anno, ma vale la pena risparmiare strada a piedi ad agosto.", tag:"parking", maps:"Gole di Fara San Martino ingresso", checklist:true, id:"d4t1", label:"Parcheggio alle Gole"},
+    {t:"09:30–12:30", title:"Gole di Fara San Martino", desc:"Ingresso → Fiume Verde → canyon (pareti fino a ~400 m) → Abbazia di San Martino in Valle → ritorno. Percorso base 1–2h senza attrezzatura tecnica; con calma 2,5–3h. Scarpe chiuse, acqua, attenzione alle rocce.", tag:"trek", maps:"Abbazia di San Martino in Valle Fara San Martino", checklist:true, id:"d4t2", label:"Trekking nelle Gole"},
+    {t:"12:30–13:00", title:"Sorgenti del Verde", desc:"Parte integrante della visita, non una tappa a sé: una passeggiata breve prima di pranzo.", tag:"free", checklist:true, id:"d4t3", label:"Sorgenti del Verde"},
+    {t:"13:15–14:45", title:"Pranzo a Fara San Martino", desc:"Trattoria tradizionale, pasta fresca: Fara è storicamente legata alla produzione della pasta grazie alle sorgenti del Verde.", tag:"food", checklist:true, id:"d4t4", label:"Pranzo a Fara San Martino"},
+    {t:"15:00–16:30", title:"Pomeriggio a Fara (opzione consigliata)", desc:"Passeggiata nel paese, caffè, gelato, relax. In alternativa una breve deviazione panoramica in Maiella, ma senza aggiungere un altro trekking.", tag:"free", checklist:true, id:"d4t5", label:"Pomeriggio libero"},
+    {t:"16:30–17:00", title:"Rientro verso L'Aquila", desc:"", tag:"drive"},
+    {t:"~18:30", title:"Hotel — ultima sera", desc:"", tag:"arrive", checklist:true, id:"d4t6", label:"Rientro in hotel"},
+  ],
+  food:[{name:"Trattoria tradizionale a Fara San Martino", meta:"13:15–14:45 circa", desc:"Dopo tre pranzi di arrosticini, oggi cucina locale e pasta fresca: è la specialità naturale del paese.", maps:"trattoria Fara San Martino pasta fresca"}],
+  packExtra:[{id:"d4p1", label:"Scarpe chiuse / da trekking", required:true}],
+  warnings:[],
+  weatherQuery:"meteo Fara San Martino 21 agosto"
+},
+{
+  id:5, date:"22 AGO", weekday:"Sabato", accent:"#B98A3D", accentName:"city",
+  title:"L'Aquila & rientro",
+  route:"L'Aquila → Roma",
+  rating:null,
+  goal:"Una giornata lentissima: niente sveglia presto, tutto a piedi in centro, poi rientro senza fretta.",
+  timeline:[
+    {t:"09:00", title:"Colazione con calma", desc:"Niente sveglia presto.", tag:"free"},
+    {t:"09:30–12:30", title:"Centro storico dell'Aquila", desc:"Auto lasciata vicino all'hotel, tutto a piedi: Basilica di Collemaggio → Parco del Sole → Fontana delle 99 Cannelle → centro storico → Basilica di San Bernardino → Piazza Duomo.", tag:"free", maps:"Basilica di Collemaggio L'Aquila", checklist:true, id:"d5t1", label:"Basilica di Collemaggio"},
+    {t:"", title:"Fontana delle 99 Cannelle", desc:"", tag:"free", maps:"Fontana delle 99 Cannelle L'Aquila", checklist:true, id:"d5t2", label:"Fontana delle 99 Cannelle"},
+    {t:"", title:"Basilica di San Bernardino", desc:"", tag:"free", maps:"Basilica di San Bernardino L'Aquila", checklist:true, id:"d5t3", label:"Basilica di San Bernardino"},
+    {t:"", title:"Piazza Duomo", desc:"", tag:"free", maps:"Piazza Duomo L'Aquila", checklist:true, id:"d5t4", label:"Piazza Duomo"},
+    {t:"12:30–14:00", title:"Ultimo pranzo in centro", desc:"Pranzo tranquillo, niente programma dopo.", tag:"food", checklist:true, id:"d5t5", label:"Ultimo pranzo"},
+    {t:"14:00–14:30", title:"Partenza per Roma", desc:"Arrivo indicativo nel pomeriggio.", tag:"drive", checklist:true, id:"d5t6", label:"Partenza per Roma"},
+  ],
+  food:[{name:"Pranzo in centro a L'Aquila", meta:"12:30–14:00", desc:"Ultimo pasto del viaggio, tranquillo e senza programma dopo.", maps:"ristoranti centro storico L'Aquila"}],
+  packExtra:[],
+  warnings:[],
+  weatherQuery:"meteo L'Aquila 22 agosto"
+},
+];
+
+const ALWAYS_PACK = [
+  {id:"ap1", label:"Scarpe da trekking"},
+  {id:"ap2", label:"Scarpe di ricambio"},
+  {id:"ap3", label:"Zaino"},
+  {id:"ap4", label:"1,5–2 L acqua a persona"},
+  {id:"ap5", label:"Cappello"},
+  {id:"ap6", label:"Crema solare"},
+  {id:"ap7", label:"Occhiali da sole"},
+  {id:"ap8", label:"Felpa"},
+  {id:"ap9", label:"K-way"},
+  {id:"ap10", label:"Asciugamano piccolo"},
+  {id:"ap11", label:"Power bank"},
+  {id:"ap12", label:"Repellente insetti"},
+];
+
+const PRE48 = [
+  {id:"p1", title:"Orfento", desc:"Verificare secondo l'ordinanza vigente che il sentiero delle Scalelle sia ancora percorribile (al momento: parzialmente riaperto, senso unico)."},
+  {id:"p2", title:"Campo Imperatore", desc:"Controllare viabilità e situazione parcheggi al piazzale."},
+  {id:"p3", title:"Baita della Sceriffa", desc:"Telefonare per confermare apertura e pranzo del 19 agosto, anche se le fonti estive la danno aperta."},
+  {id:"p4", title:"Sentiero del Cuore", desc:"Controllare condizioni del sentiero e disponibilità del parcheggio al lago."},
+  {id:"p5", title:"Meteo", desc:"È l'elemento che più probabilmente può far cambiare l'ordine delle giornate: ricontrollare vicino alla partenza."},
+];
+
+/* ============ GITHUB SYNC ============ */
+const GH_OWNER = "nicolapaese87-jpg";
+const GH_REPO = "gaiettaleabruzzo";
+const GH_PATH = "data.json";
+const GH_BRANCH = "main";
+
+function lsGet(key){ try{ return localStorage.getItem(key); }catch(e){ return null; } }
+function lsSet(key,val){ try{ localStorage.setItem(key,val); }catch(e){} }
+
+function ghToken(){ return lsGet('gh_pat') || ''; }
+function ghUser(){ return lsGet('gh_user') || ''; }
+
+function ghRawUrl(){ return `https://raw.githubusercontent.com/${GH_OWNER}/${GH_REPO}/${GH_BRANCH}/${GH_PATH}?t=${Date.now()}`; }
+function ghApiUrl(){ return `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${GH_PATH}`; }
+
+async function ghFetchRemote(){
+  const res = await fetch(ghRawUrl(), {cache:"no-store"});
+  if(res.status===404) return null;
+  if(!res.ok) throw new Error("fetch-failed-"+res.status);
+  return await res.json();
+}
+
+async function ghSave(newState){
+  const token = ghToken();
+  if(!token) throw new Error("no-token");
+  let sha = null;
+  const infoRes = await fetch(ghApiUrl()+`?ref=${GH_BRANCH}`, {headers:{Authorization:`token ${token}`, Accept:'application/vnd.github+json'}});
+  if(infoRes.ok){ const info = await infoRes.json(); sha = info.sha; }
+  else if(infoRes.status!==404){ throw new Error("auth-failed-"+infoRes.status); }
+  const body = {
+    message: `Aggiornamento di ${ghUser()||'un admin'}`,
+    content: btoa(unescape(encodeURIComponent(JSON.stringify(newState, null, 2)))),
+    branch: GH_BRANCH,
+  };
+  if(sha) body.sha = sha;
+  const putRes = await fetch(ghApiUrl(), {
+    method:"PUT",
+    headers:{Authorization:`token ${token}`, Accept:'application/vnd.github+json', "Content-Type":"application/json"},
+    body: JSON.stringify(body)
+  });
+  if(!putRes.ok){
+    const err = await putRes.json().catch(()=>({}));
+    throw new Error("save-failed: "+(err.message||putRes.status));
+  }
+}
+
+let state = { days:{}, pre48:{items:{}, notes:""}, packing:{items:{}, custom:[]}, _meta:{} };
+let currentDay = 1;
+let dirty = false;
+
+function emptyDayState(d){ return { tappe:{}, pack:{}, packCustom:[], note:"", goalText:d.goal }; }
+
+function defaultState(){
+  const s = { days:{}, pre48:{items:{}, notes:""}, packing:{items:{}, custom:[]}, _meta:{} };
+  DAYS.forEach(d=> s.days[d.id] = emptyDayState(d));
+  return s;
+}
+
+function mergeIntoDefaults(remote){
+  const base = defaultState();
+  if(!remote) return base;
+  DAYS.forEach(d=>{
+    base.days[d.id] = Object.assign(emptyDayState(d), remote.days && remote.days[d.id] ? remote.days[d.id] : {});
+  });
+  base.pre48 = remote.pre48 || base.pre48;
+  base.packing = remote.packing || base.packing;
+  base._meta = remote._meta || {};
+  return base;
+}
+
+function setSyncStatus(mode, text){
+  const dot = document.getElementById('syncDot');
+  const txt = document.getElementById('syncText');
+  if(!dot) return;
+  dot.className = 'sync-dot ' + (mode==='ok'?'':mode==='off'?'off':'err');
+  txt.textContent = text;
+}
+
+async function loadAll(){
+  setSyncStatus('off','Connessione a GitHub...');
+  try{
+    const remote = await ghFetchRemote();
+    state = mergeIntoDefaults(remote);
+    if(!ghToken()){
+      setSyncStatus('off','Lettura ok · connetti il tuo account per scrivere');
+    } else {
+      setSyncStatus('ok', metaLabel());
+    }
+  }catch(e){
+    state = defaultState();
+    setSyncStatus('err','Impossibile leggere da GitHub — modifiche solo locali');
+  }
+}
+
+function metaLabel(){
+  const m = state._meta;
+  if(m && m.by && m.at){
+    const d = new Date(m.at);
+    const hh = String(d.getHours()).padStart(2,'0'), mm = String(d.getMinutes()).padStart(2,'0');
+    return `Sincronizzato · ultima modifica di ${m.by} alle ${hh}:${mm}`;
+  }
+  return 'Sincronizzato';
+}
+
+async function pushSave(){
+  if(!ghToken()){ setSyncStatus('off','Non connesso — apri Menù → Collega GitHub per salvare online'); return; }
+  state._meta = { by: ghUser()||'un admin', at: new Date().toISOString() };
+  setSyncStatus('off','Salvataggio in corso...');
+  try{
+    await ghSave(state);
+    setSyncStatus('ok', metaLabel());
+  }catch(e){
+    setSyncStatus('err', e.message==='no-token' ? 'Token mancante' : 'Errore di salvataggio — controlla il token');
+  }
+}
+
+function saveDebounced(){
+  dirty = true;
+  clearTimeout(saveDebounced._t);
+  saveDebounced._t = setTimeout(()=>{ dirty=false; pushSave(); }, 1200);
+}
+
+async function pollRemote(){
+  if(dirty) return;
+  const active = document.activeElement;
+  if(active && (active.tagName==='TEXTAREA' || active.tagName==='INPUT')) return;
+  try{
+    const remote = await ghFetchRemote();
+    if(remote && JSON.stringify(remote)!==JSON.stringify(state)){
+      state = mergeIntoDefaults(remote);
+      renderAll();
+      setSyncStatus('ok', metaLabel());
+    }
+  }catch(e){ /* silent */ }
+}
+setInterval(pollRemote, 25000);
+document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) pollRemote(); });
+
+/* ============ RIDGE SVG ============ */
+function ridgeSvg(color, seed){
+  const pts=[]; let x=0; const w=600,h=22;
+  let y = h*0.7;
+  const rnd = (n)=> Math.abs(Math.sin(seed*99+n*17))%1;
+  let i=0;
+  pts.push(`0,${h}`);
+  while(x<w){
+    const step = 26 + rnd(i)*20;
+    y = h*0.25 + rnd(i+1)*h*0.55;
+    x += step;
+    pts.push(`${Math.min(x,w).toFixed(1)},${y.toFixed(1)}`);
+    i++;
+  }
+  pts.push(`${w},${h}`);
+  return `<svg class="ridge" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="${pts.join(' ')}" fill="${color}" opacity="0.9"/>
+  </svg>`;
+}
+
+/* ============ RENDER ============ */
+function mapsUrl(q){ return "https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(q); }
+function weatherUrl(q){ return "https://www.google.com/search?q="+encodeURIComponent(q); }
+
+function renderTabs(){
+  const el = document.getElementById('tabs');
+  el.innerHTML = DAYS.map(d=>`
+    <button class="tab ${d.id===currentDay?'active':''}" data-day="${d.id}">
+      <div class="d">${d.date}</div>
+      <div class="t">${d.title}</div>
+    </button>`).join('');
+  el.querySelectorAll('.tab').forEach(b=> b.addEventListener('click', ()=>{
+    currentDay = parseInt(b.dataset.day); renderAll();
+    document.getElementById('main').scrollIntoView({behavior:'smooth', block:'start'});
+  }));
+}
+
+function renderOverview(){
+  const el = document.getElementById('ovBody');
+  el.innerHTML = DAYS.map(d=>`
+    <div class="ov-day">
+      <div class="ov-dot" style="background:${d.accent}"></div>
+      <div class="ov-txt">
+        <b>${d.date} · ${d.title}</b>
+        <div>${d.route}</div>
+      </div>
+    </div>`).join('');
+}
+
+function tappeProgress(d){
+  const items = d.timeline.filter(t=>t.checklist);
+  const done = items.filter(t=> state.days[d.id].tappe[t.id]).length;
+  return {done, total:items.length};
+}
+
+function renderMain(){
+  const d = DAYS.find(x=>x.id===currentDay);
+  const ds = state.days[d.id];
+  const prog = tappeProgress(d);
+
+  const timelineHtml = d.timeline.map((item,idx)=>{
+    const isLast = idx === d.timeline.length-1;
+    const checked = item.checklist && ds.tappe[item.id];
+    return `
+    <div class="tl-item">
+      <div class="tl-rail">
+        <div class="tl-dot ${checked?'checked':''}" style="--accent:${d.accent}"></div>
+        ${isLast?'':'<div class="tl-line"></div>'}
+      </div>
+      <div class="tl-body">
+        ${item.t?`<div class="tl-time" style="--accent:${d.accent}">${item.t}</div>`:''}
+        <div class="tl-title">${item.title}</div>
+        ${item.desc?`<div class="tl-desc">${item.desc}</div>`:''}
+        <div class="tl-actions">
+          ${item.checklist?`<button class="chip-btn ${checked?'done':''}" data-tid="${item.id}">${checked?'✓ Fatto':'Segna come fatto'}</button>`:''}
+          ${item.maps?`<a class="chip-btn map" target="_blank" rel="noopener" href="${mapsUrl(item.maps)}">📍 Apri mappa</a>`:''}
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+
+  const foodHtml = d.food.map(f=>`
+    <div class="food-card">
+      <div class="food-name">${f.name}</div>
+      <div class="food-meta">${f.meta}</div>
+      <div class="food-desc">${f.desc}</div>
+      <div class="tl-actions" style="margin-top:10px;">
+        <a class="chip-btn map" target="_blank" rel="noopener" href="${mapsUrl(f.maps)}">📍 Apri mappa</a>
+      </div>
+    </div>`).join('');
+
+  const packAll = [...d.packExtra, ...ALWAYS_PACK.map(p=>({id:p.id, label:p.label}))];
+  const packDefaultHtml = packAll.map(p=>{
+    const on = ds.pack[p.id];
+    return `<button class="pack-chip ${on?'on':''} ${p.required?'required':''}" data-pid="${p.id}">${on?'✓ ':''}${p.label}</button>`;
+  }).join('');
+  const packCustomHtml = (ds.packCustom||[]).map(p=>{
+    const on = ds.pack[p.id];
+    return `<button class="pack-chip ${on?'on':''}" data-pid="${p.id}">${on?'✓ ':''}${p.label} <span class="rm" data-rmpid="${p.id}">✕</span></button>`;
+  }).join('');
+
+  const warnHtml = d.warnings.map(w=>`<div class="warn-box">⚠️ ${w}</div>`).join('');
+
+  document.getElementById('main').innerHTML = `
+    <div class="day-head" style="--accent:${d.accent}">
+      <div class="day-eyebrow">${d.weekday} · ${d.date}</div>
+      <div class="day-title">${d.title}</div>
+      <div class="day-route">${d.route}</div>
+      <div class="badge-row">
+        ${d.rating?`<span class="rating" style="background:${d.accent}">⭐ ${d.rating}</span>`:''}
+        <span class="progress-pill">${prog.done}/${prog.total} tappe fatte</span>
+        <a class="weather-link" target="_blank" rel="noopener" href="${weatherUrl(d.weatherQuery)}">🌤️ Meteo del giorno</a>
+      </div>
+      <textarea class="goal-edit" id="goalBox" style="--accent:${d.accent}" placeholder="Obiettivo della giornata...">${ds.goalText!=null?ds.goalText:d.goal}</textarea>
+    </div>
+
+    ${warnHtml}
+
+    <div class="section">
+      <div class="section-title">Programma della giornata <span class="n">${d.timeline.length} tappe</span></div>
+      <div class="timeline">${timelineHtml}</div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Dove mangiare</div>
+      ${foodHtml}
+    </div>
+
+    <div class="section">
+      <div class="section-title">Cosa portare oggi</div>
+      <div class="chip-grid">${packDefaultHtml}${packCustomHtml}</div>
+      <div class="pack-add-row">
+        <input type="text" id="packAddInput" placeholder="Aggiungi una voce...">
+        <button id="packAddBtn">+ Aggiungi</button>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Note del giorno</div>
+      <textarea class="note" id="noteBox" placeholder="Appunti, orari confermati, imprevisti...">${ds.note||''}</textarea>
+    </div>
+  `;
+
+  // wire up
+  document.querySelectorAll('[data-tid]').forEach(b=> b.addEventListener('click', ()=>{
+    const id = b.dataset.tid;
+    ds.tappe[id] = !ds.tappe[id];
+    saveDebounced();
+    renderMain(); renderBottomBar();
+  }));
+  document.querySelectorAll('[data-pid]').forEach(b=> b.addEventListener('click', (e)=>{
+    if(e.target.closest('[data-rmpid]')) return;
+    const id = b.dataset.pid;
+    ds.pack[id] = !ds.pack[id];
+    saveDebounced();
+    renderMain();
+  }));
+  document.querySelectorAll('[data-rmpid]').forEach(x=> x.addEventListener('click', (e)=>{
+    e.stopPropagation();
+    const id = x.dataset.rmpid;
+    ds.packCustom = (ds.packCustom||[]).filter(p=>p.id!==id);
+    delete ds.pack[id];
+    saveDebounced();
+    renderMain();
+  }));
+  document.getElementById('packAddBtn').addEventListener('click', ()=>{
+    const input = document.getElementById('packAddInput');
+    const label = input.value.trim();
+    if(!label) return;
+    const id = 'c'+Date.now();
+    ds.packCustom = ds.packCustom||[];
+    ds.packCustom.push({id, label});
+    saveDebounced();
+    renderMain();
+  });
+  document.getElementById('packAddInput').addEventListener('keydown', (e)=>{
+    if(e.key==='Enter'){ e.preventDefault(); document.getElementById('packAddBtn').click(); }
+  });
+  const goalBox = document.getElementById('goalBox');
+  goalBox.addEventListener('input', ()=>{ ds.goalText = goalBox.value; saveDebounced(); });
+
+  const noteBox = document.getElementById('noteBox');
+  noteBox.addEventListener('input', ()=>{ ds.note = noteBox.value; saveDebounced(); });
+}
+
+function renderBottomBar(){
+  const d = DAYS.find(x=>x.id===currentDay);
+  const prog = tappeProgress(d);
+  const pct = prog.total? Math.round(prog.done/prog.total*100) : 0;
+  document.getElementById('bbLabel').textContent = `${prog.done}/${prog.total} oggi`;
+  document.getElementById('bbFill').style.width = pct+'%';
+
+  let totalDone=0, totalAll=0;
+  DAYS.forEach(dd=>{ const p = tappeProgress(dd); totalDone+=p.done; totalAll+=p.total; });
+  const tripPct = totalAll? Math.round(totalDone/totalAll*100) : 0;
+  document.getElementById('bbTripLabel').textContent = `Viaggio ${tripPct}%`;
+}
+
+function renderAll(){
+  renderTabs();
+  renderMain();
+  renderBottomBar();
+}
+
+/* ============ OVERLAY: menu / pre48 / packing ============ */
+function openOverlay(html){
+  document.getElementById('sheetContent').innerHTML = html;
+  document.getElementById('overlayBg').classList.add('open');
+}
+function closeOverlay(){ document.getElementById('overlayBg').classList.remove('open'); }
+
+function menuSheet(){
+  const connected = !!ghToken();
+  openOverlay(`
+    <div class="sheet-head">
+      <div class="sheet-title">Menù</div>
+      <button class="close-btn" id="closeSheet">×</button>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:10px; margin-top:6px;">
+      <button class="overview-toggle" id="btnPre48" style="text-align:left;">⚠️ 5 controlli 48h prima</button>
+      <button class="overview-toggle" id="btnPacking" style="text-align:left;">🎒 Zaino sempre in auto</button>
+      <button class="overview-toggle" id="btnGithub" style="text-align:left;">${connected? '🔗 Connesso come '+ghUser() : '🔗 Collega GitHub (per salvare online)'}</button>
+    </div>
+  `);
+  document.getElementById('closeSheet').addEventListener('click', closeOverlay);
+  document.getElementById('btnPre48').addEventListener('click', pre48Sheet);
+  document.getElementById('btnPacking').addEventListener('click', packingSheet);
+  document.getElementById('btnGithub').addEventListener('click', githubSheet);
+}
+
+function githubSheet(){
+  openOverlay(`
+    <div class="sheet-head">
+      <div class="sheet-title">Collega GitHub</div>
+      <button class="close-btn" id="closeSheet">×</button>
+    </div>
+    <div class="form-hint" style="margin-bottom:14px;">
+      Repository: <b>${GH_OWNER}/${GH_REPO}</b><br>
+      Il token ti dà i permessi per salvare le modifiche online. Resta solo su questo dispositivo.
+    </div>
+    <div class="form-row">
+      <label>Il tuo nome</label>
+      <input type="text" id="ghUserInput" placeholder="Ale oppure Gaietta" value="${ghUser()}">
+    </div>
+    <div class="form-row">
+      <label>Personal Access Token</label>
+      <input type="password" id="ghTokenInput" placeholder="ghp_..." value="${ghToken()}">
+      <div class="form-hint">
+        Non ce l'hai ancora? Vai su <a href="https://github.com/settings/tokens/new?scopes=repo&description=Abruzzo%20trip" target="_blank" rel="noopener">github.com/settings/tokens</a>,
+        crea un token classico con permesso <b>repo</b>, copialo e incollalo qui.
+      </div>
+    </div>
+    <button class="form-btn" id="ghSaveBtn">Salva e connetti</button>
+    ${ghToken()?'<button class="form-btn secondary" id="ghDisconnectBtn" style="margin-top:8px;">Disconnetti da questo dispositivo</button>':''}
+    <div class="save-hint" id="ghStatus" style="margin-top:10px;"></div>
+  `);
+  document.getElementById('closeSheet').addEventListener('click', closeOverlay);
+  document.getElementById('ghSaveBtn').addEventListener('click', async ()=>{
+    const user = document.getElementById('ghUserInput').value.trim();
+    const token = document.getElementById('ghTokenInput').value.trim();
+    const status = document.getElementById('ghStatus');
+    if(!user || !token){ status.textContent = 'Inserisci nome e token.'; return; }
+    lsSet('gh_user', user); lsSet('gh_pat', token);
+    status.textContent = 'Verifica in corso...';
+    try{
+      await pushSave();
+      status.textContent = 'Connesso e salvato correttamente ✓';
+      renderAll();
+    }catch(e){
+      status.textContent = 'Token non valido o senza permessi sul repo.';
+    }
+  });
+  const disc = document.getElementById('ghDisconnectBtn');
+  if(disc) disc.addEventListener('click', ()=>{
+    lsSet('gh_user',''); lsSet('gh_pat','');
+    closeOverlay(); setSyncStatus('off','Non connesso');
+  });
+}
+
+function checkSvg(){
+  return `<svg viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#F3EFE3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+}
+
+function pre48Sheet(){
+  const done = PRE48.filter(p=> state.pre48.items[p.id]).length;
+  openOverlay(`
+    <div class="sheet-head">
+      <div class="sheet-title">48h prima di partire</div>
+      <button class="close-btn" id="closeSheet">×</button>
+    </div>
+    <div class="save-hint" style="margin-bottom:6px;">${done}/${PRE48.length} controllati</div>
+    ${PRE48.map(p=>`
+      <div class="pre48-item">
+        <div class="chk ${state.pre48.items[p.id]?'on':''}" data-p48="${p.id}">${checkSvg()}</div>
+        <div class="pre48-txt"><b>${p.title}</b><div>${p.desc}</div></div>
+      </div>`).join('')}
+    <div class="section" style="margin-top:16px;">
+      <div class="section-title" style="font-size:14px;">Appunti generali</div>
+      <textarea class="note" id="pre48Notes" placeholder="Es. esito telefonata Baita, previsioni meteo confermate...">${state.pre48.notes||''}</textarea>
+    </div>
+  `);
+  document.getElementById('closeSheet').addEventListener('click', closeOverlay);
+  document.querySelectorAll('[data-p48]').forEach(b=> b.addEventListener('click', ()=>{
+    const id = b.dataset.p48;
+    state.pre48.items[id] = !state.pre48.items[id];
+    saveDebounced();
+    pre48Sheet();
+  }));
+  const notes = document.getElementById('pre48Notes');
+  notes.addEventListener('input', ()=>{ state.pre48.notes = notes.value; saveDebounced(); });
+}
+
+function packingSheet(){
+  state.packing.custom = state.packing.custom || [];
+  const totalItems = ALWAYS_PACK.length + state.packing.custom.length;
+  const done = ALWAYS_PACK.filter(p=> state.packing.items[p.id]).length
+             + state.packing.custom.filter(p=> state.packing.items[p.id]).length;
+  openOverlay(`
+    <div class="sheet-head">
+      <div class="sheet-title">Zaino sempre in auto</div>
+      <button class="close-btn" id="closeSheet">×</button>
+    </div>
+    <div class="save-hint" style="margin-bottom:6px;">${done}/${totalItems} pronti</div>
+    <div class="chip-grid">
+      ${ALWAYS_PACK.map(p=>{
+        const on = state.packing.items[p.id];
+        return `<button class="pack-chip ${on?'on':''}" data-apid="${p.id}">${on?'✓ ':''}${p.label}</button>`;
+      }).join('')}
+      ${state.packing.custom.map(p=>{
+        const on = state.packing.items[p.id];
+        return `<button class="pack-chip ${on?'on':''}" data-apid="${p.id}">${on?'✓ ':''}${p.label} <span class="rm" data-rmapid="${p.id}">✕</span></button>`;
+      }).join('')}
+    </div>
+    <div class="pack-add-row">
+      <input type="text" id="packAddInputGlobal" placeholder="Aggiungi una voce...">
+      <button id="packAddBtnGlobal">+ Aggiungi</button>
+    </div>
+  `);
+  document.getElementById('closeSheet').addEventListener('click', closeOverlay);
+  document.querySelectorAll('[data-apid]').forEach(b=> b.addEventListener('click', (e)=>{
+    if(e.target.closest('[data-rmapid]')) return;
+    const id = b.dataset.apid;
+    state.packing.items[id] = !state.packing.items[id];
+    saveDebounced();
+    packingSheet();
+  }));
+  document.querySelectorAll('[data-rmapid]').forEach(x=> x.addEventListener('click', (e)=>{
+    e.stopPropagation();
+    const id = x.dataset.rmapid;
+    state.packing.custom = state.packing.custom.filter(p=>p.id!==id);
+    delete state.packing.items[id];
+    saveDebounced();
+    packingSheet();
+  }));
+  document.getElementById('packAddBtnGlobal').addEventListener('click', ()=>{
+    const input = document.getElementById('packAddInputGlobal');
+    const label = input.value.trim();
+    if(!label) return;
+    const id = 'gc'+Date.now();
+    state.packing.custom.push({id, label});
+    saveDebounced();
+    packingSheet();
+  });
+  document.getElementById('packAddInputGlobal').addEventListener('keydown', (e)=>{
+    if(e.key==='Enter'){ e.preventDefault(); document.getElementById('packAddBtnGlobal').click(); }
+  });
+}
+
+/* ============ INIT ============ */
+document.getElementById('menuBtn').addEventListener('click', menuSheet);
+document.getElementById('syncNowBtn').addEventListener('click', async ()=>{
+  setSyncStatus('off','Aggiornamento...');
+  await pollRemoteForce();
+});
+async function pollRemoteForce(){
+  try{
+    const remote = await ghFetchRemote();
+    state = mergeIntoDefaults(remote);
+    renderAll();
+    setSyncStatus(ghToken()?'ok':'off', ghToken()?metaLabel():'Lettura ok · non connesso per scrivere');
+  }catch(e){
+    setSyncStatus('err','Errore di aggiornamento');
+  }
+}
+document.getElementById('overlayBg').addEventListener('click', (e)=>{ if(e.target.id==='overlayBg') closeOverlay(); });
+document.getElementById('ovToggle').addEventListener('click', ()=>{
+  document.getElementById('ovBody').classList.toggle('open');
+  document.getElementById('ovArrow').textContent = document.getElementById('ovBody').classList.contains('open') ? '▴' : '▾';
+});
+
+function pickInitialDay(){
+  try{
+    const now = new Date();
+    const y=now.getFullYear(), m=now.getMonth()+1, dd=now.getDate();
+    if(y===2026 && m===8 && dd>=18 && dd<=22) return dd-17;
+  }catch(e){}
+  return 1;
+}
+
+(async function init(){
+  currentDay = pickInitialDay();
+  await loadAll();
+  renderOverview();
+  renderAll();
+})();
+</script>
+</body>
+</html>
