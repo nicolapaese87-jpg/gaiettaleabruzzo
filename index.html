@@ -301,6 +301,75 @@ textarea.goal-edit{
 }
 .form-btn.secondary{background:none; border:1px solid var(--line); color:var(--ink);}
 
+/* ---------- Home (car hero + stop icons) ---------- */
+.home-head{margin-bottom:14px;}
+.car-hero{
+  display:flex; justify-content:center; margin:0 0 10px 0;
+}
+.car-hero img{
+  width:78%; max-width:340px; height:auto; display:block;
+}
+.journal-cta{
+  width:100%; display:flex; align-items:center; gap:12px; text-align:left;
+  background:linear-gradient(135deg, var(--clay), var(--gold));
+  color:#fff; border:none; border-radius:16px; padding:14px 16px; margin-bottom:22px;
+  cursor:pointer; box-shadow:var(--shadow);
+}
+.jc-emoji{font-size:26px; flex:0 0 auto;}
+.jc-txt{flex:1;}
+.jc-txt b{font-family:'Fraunces',serif; font-size:15px; display:block;}
+.jc-txt div{font-size:12px; opacity:.92; margin-top:2px;}
+.jc-arrow{font-size:20px; opacity:.85;}
+
+.stops-label{
+  font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.06em; text-transform:uppercase;
+  color:#6B7568; text-align:center; margin-bottom:12px;
+}
+.stops-row{
+  display:flex; justify-content:center; gap:14px; flex-wrap:wrap; padding:0 4px 4px 4px;
+}
+.stop-icon{
+  display:flex; flex-direction:column; align-items:center; gap:7px; cursor:pointer;
+  width:82px; background:none; border:none;
+}
+.stop-icon .circle{
+  width:56px; height:56px; border-radius:50%; background:var(--pin-color);
+  display:flex; align-items:center; justify-content:center; font-size:24px;
+  border:3px solid var(--card); box-shadow:var(--shadow);
+}
+.stop-icon .lbl{font-family:'Fraunces',serif; font-weight:600; font-size:12.5px; text-align:center; line-height:1.2;}
+.stop-icon .dt{font-family:'IBM Plex Mono',monospace; font-size:9.5px; color:#8B9284; text-align:center;}
+.stop-icon .prog{
+  font-family:'IBM Plex Mono',monospace; font-size:9px; color:var(--pine); background:var(--card);
+  border:1px solid var(--line); border-radius:20px; padding:1px 7px; margin-top:1px;
+}
+
+/* ---------- Journal (diario) ---------- */
+.journal-form{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:16px; margin-bottom:22px;}
+select.jsel{
+  width:100%; border:1px solid var(--line); border-radius:10px; padding:10px 12px;
+  font-family:'Inter',sans-serif; font-size:13.5px; background:#fff; color:var(--ink);
+}
+#jPhoto{font-size:12.5px; color:#5B6459; max-width:100%;}
+
+.journal-list{display:flex; flex-direction:column; gap:14px;}
+.journal-entry{
+  background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+  overflow:hidden; box-shadow:var(--shadow);
+}
+.je-img{width:100%; display:block; max-height:280px; object-fit:cover;}
+.je-body{padding:13px 14px;}
+.je-tags{display:flex; gap:6px; flex-wrap:wrap; margin-bottom:6px;}
+.je-type{font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:#fff; padding:3px 9px; border-radius:20px;}
+.je-day{font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:var(--pine); border:1px solid var(--line); padding:3px 9px; border-radius:20px;}
+.je-title{font-family:'Fraunces',serif; font-weight:600; font-size:15.5px; margin-top:3px;}
+.je-text{font-size:13.5px; color:#4A4038; margin-top:6px; line-height:1.5; white-space:pre-wrap;}
+.je-meta{
+  font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:#8B9284; margin-top:10px;
+  display:flex; align-items:center; justify-content:space-between; gap:8px;
+}
+.je-del{background:none; border:none; color:#B5473A; font-size:11px; cursor:pointer; font-family:'IBM Plex Mono',monospace; text-decoration:underline; padding:0;}
+
 /* ---------- Overlay (48h / packing) ---------- */
 .overlay-bg{
   position:fixed; inset:0; background:rgba(20,26,20,.5); z-index:60;
@@ -387,7 +456,7 @@ textarea.goal-edit{
 /* ============ DATA ============ */
 const DAYS = [
 {
-  id:1, date:"18 AGO", weekday:"Martedì", accent:"#6B7568", accentName:"rock",
+  id:1, date:"18 AGO", weekday:"Martedì", accent:"#6B7568", accentName:"rock", emoji:"🏔️",
   title:"Campo Imperatore",
   route:"Roma → Campo Imperatore → L'Aquila",
   rating:"10/10",
@@ -409,7 +478,7 @@ const DAYS = [
   weatherQuery:"meteo Campo Imperatore L'Aquila 18 agosto"
 },
 {
-  id:2, date:"19 AGO", weekday:"Mercoledì", accent:"#3E6353", accentName:"forest",
+  id:2, date:"19 AGO", weekday:"Mercoledì", accent:"#3E6353", accentName:"forest", emoji:"🌲",
   title:"Orfento & Rigopiano",
   route:"L'Aquila → Valle dell'Orfento → Baita della Sceriffa → L'Aquila",
   rating:"9,5/10",
@@ -431,7 +500,7 @@ const DAYS = [
   weatherQuery:"meteo Caramanico Terme Farindola 19 agosto"
 },
 {
-  id:3, date:"20 AGO", weekday:"Giovedì", accent:"#3E6E8E", accentName:"lake",
+  id:3, date:"20 AGO", weekday:"Giovedì", accent:"#3E6E8E", accentName:"lake", emoji:"💙",
   title:"Scanno & Sagittario",
   route:"L'Aquila → Scanno → Lago di San Domenico → Gole del Sagittario → L'Aquila",
   rating:"10/10",
@@ -454,7 +523,7 @@ const DAYS = [
   weatherQuery:"meteo Scanno Villalago 20 agosto"
 },
 {
-  id:4, date:"21 AGO", weekday:"Venerdì", accent:"#A85A38", accentName:"canyon",
+  id:4, date:"21 AGO", weekday:"Venerdì", accent:"#A85A38", accentName:"canyon", emoji:"🥾",
   title:"Fara San Martino",
   route:"L'Aquila → Fara San Martino → Gole → L'Aquila",
   rating:"9,5/10",
@@ -475,7 +544,7 @@ const DAYS = [
   weatherQuery:"meteo Fara San Martino 21 agosto"
 },
 {
-  id:5, date:"22 AGO", weekday:"Sabato", accent:"#B98A3D", accentName:"city",
+  id:5, date:"22 AGO", weekday:"Sabato", accent:"#B98A3D", accentName:"city", emoji:"🏛️",
   title:"L'Aquila & rientro",
   route:"L'Aquila → Roma",
   rating:null,
@@ -565,14 +634,58 @@ async function ghSave(newState){
   }
 }
 
-let state = { days:{}, pre48:{items:{}, notes:""}, packing:{items:{}, custom:[]}, _meta:{} };
+async function ghUploadImage(base64, filename){
+  const token = ghToken();
+  if(!token) throw new Error("no-token");
+  const path = "images/"+filename;
+  const url = `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${path}`;
+  const res = await fetch(url, {
+    method:"PUT",
+    headers:{Authorization:`token ${token}`, Accept:'application/vnd.github+json', "Content-Type":"application/json"},
+    body: JSON.stringify({ message:`Foto diario da ${ghUser()||'admin'}`, content: base64, branch: GH_BRANCH })
+  });
+  if(!res.ok){
+    const err = await res.json().catch(()=>({}));
+    throw new Error(err.message || ("upload-failed-"+res.status));
+  }
+  const data = await res.json();
+  return data.content && data.content.download_url;
+}
+
+function resizeImageFile(file, maxDim=1400, quality=0.72){
+  return new Promise((resolve, reject)=>{
+    const reader = new FileReader();
+    reader.onerror = ()=> reject(new Error("read-failed"));
+    reader.onload = ()=>{
+      const img = new Image();
+      img.onerror = ()=> reject(new Error("decode-failed"));
+      img.onload = ()=>{
+        let w = img.width, h = img.height;
+        if(w>maxDim || h>maxDim){
+          if(w>h){ h = Math.round(h*maxDim/w); w = maxDim; }
+          else{ w = Math.round(w*maxDim/h); h = maxDim; }
+        }
+        const canvas = document.createElement('canvas');
+        canvas.width = w; canvas.height = h;
+        canvas.getContext('2d').drawImage(img,0,0,w,h);
+        const dataUrl = canvas.toDataURL('image/jpeg', quality);
+        resolve(dataUrl.split(',')[1]);
+      };
+      img.src = reader.result;
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+let state = { days:{}, pre48:{items:{}, notes:""}, packing:{items:{}, custom:[]}, journal:[], _meta:{} };
 let currentDay = 1;
+let currentView = { type:'home' };
 let dirty = false;
 
 function emptyDayState(d){ return { tappe:{}, pack:{}, packCustom:[], note:"", goalText:d.goal }; }
 
 function defaultState(){
-  const s = { days:{}, pre48:{items:{}, notes:""}, packing:{items:{}, custom:[]}, _meta:{} };
+  const s = { days:{}, pre48:{items:{}, notes:""}, packing:{items:{}, custom:[]}, journal:[], _meta:{} };
   DAYS.forEach(d=> s.days[d.id] = emptyDayState(d));
   return s;
 }
@@ -585,6 +698,7 @@ function mergeIntoDefaults(remote){
   });
   base.pre48 = remote.pre48 || base.pre48;
   base.packing = remote.packing || base.packing;
+  base.journal = remote.journal || base.journal;
   base._meta = remote._meta || {};
   return base;
 }
@@ -683,16 +797,40 @@ function weatherUrl(q){ return "https://www.google.com/search?q="+encodeURICompo
 
 function renderTabs(){
   const el = document.getElementById('tabs');
-  el.innerHTML = DAYS.map(d=>`
-    <button class="tab ${d.id===currentDay?'active':''}" data-day="${d.id}">
+  const homeActive = currentView.type==='home';
+  const journalActive = currentView.type==='journal';
+  el.innerHTML = `
+    <button class="tab ${homeActive?'active':''}" data-view="home">
+      <div class="d">Home</div>
+      <div class="t">🏠 Mappa</div>
+    </button>
+    ${DAYS.map(d=>`
+    <button class="tab ${currentView.type==='day'&&currentView.id===d.id?'active':''}" data-view="day" data-day="${d.id}">
       <div class="d">${d.date}</div>
-      <div class="t">${d.title}</div>
-    </button>`).join('');
+      <div class="t">${d.emoji} ${d.title}</div>
+    </button>`).join('')}
+    <button class="tab ${journalActive?'active':''}" data-view="journal">
+      <div class="d">Ricordi</div>
+      <div class="t">📔 Diario</div>
+    </button>
+  `;
   el.querySelectorAll('.tab').forEach(b=> b.addEventListener('click', ()=>{
-    currentDay = parseInt(b.dataset.day); renderAll();
+    const v = b.dataset.view;
+    if(v==='day'){ currentDay = parseInt(b.dataset.day); currentView = {type:'day', id:currentDay}; }
+    else if(v==='journal'){ currentView = {type:'journal'}; }
+    else { currentView = {type:'home'}; }
+    renderAll();
     document.getElementById('main').scrollIntoView({behavior:'smooth', block:'start'});
   }));
 }
+
+function goToDay(id){
+  currentDay = id; currentView = {type:'day', id};
+  renderAll();
+  document.getElementById('main').scrollIntoView({behavior:'smooth', block:'start'});
+}
+function goToJournal(){ currentView = {type:'journal'}; renderAll(); }
+function goToHome(){ currentView = {type:'home'}; renderAll(); }
 
 function renderOverview(){
   const el = document.getElementById('ovBody');
@@ -712,7 +850,7 @@ function tappeProgress(d){
   return {done, total:items.length};
 }
 
-function renderMain(){
+function renderDayView(){
   const d = DAYS.find(x=>x.id===currentDay);
   const ds = state.days[d.id];
   const prog = tappeProgress(d);
@@ -805,14 +943,14 @@ function renderMain(){
     const id = b.dataset.tid;
     ds.tappe[id] = !ds.tappe[id];
     saveDebounced();
-    renderMain(); renderBottomBar();
+    renderDayView(); renderBottomBar();
   }));
   document.querySelectorAll('[data-pid]').forEach(b=> b.addEventListener('click', (e)=>{
     if(e.target.closest('[data-rmpid]')) return;
     const id = b.dataset.pid;
     ds.pack[id] = !ds.pack[id];
     saveDebounced();
-    renderMain();
+    renderDayView();
   }));
   document.querySelectorAll('[data-rmpid]').forEach(x=> x.addEventListener('click', (e)=>{
     e.stopPropagation();
@@ -820,7 +958,7 @@ function renderMain(){
     ds.packCustom = (ds.packCustom||[]).filter(p=>p.id!==id);
     delete ds.pack[id];
     saveDebounced();
-    renderMain();
+    renderDayView();
   }));
   document.getElementById('packAddBtn').addEventListener('click', ()=>{
     const input = document.getElementById('packAddInput');
@@ -830,7 +968,7 @@ function renderMain(){
     ds.packCustom = ds.packCustom||[];
     ds.packCustom.push({id, label});
     saveDebounced();
-    renderMain();
+    renderDayView();
   });
   document.getElementById('packAddInput').addEventListener('keydown', (e)=>{
     if(e.key==='Enter'){ e.preventDefault(); document.getElementById('packAddBtn').click(); }
@@ -843,6 +981,9 @@ function renderMain(){
 }
 
 function renderBottomBar(){
+  const bar = document.querySelector('.bottombar');
+  if(currentView.type!=='day'){ bar.style.display='none'; return; }
+  bar.style.display='flex';
   const d = DAYS.find(x=>x.id===currentDay);
   const prog = tappeProgress(d);
   const pct = prog.total? Math.round(prog.done/prog.total*100) : 0;
@@ -853,6 +994,182 @@ function renderBottomBar(){
   DAYS.forEach(dd=>{ const p = tappeProgress(dd); totalDone+=p.done; totalAll+=p.total; });
   const tripPct = totalAll? Math.round(totalDone/totalAll*100) : 0;
   document.getElementById('bbTripLabel').textContent = `Viaggio ${tripPct}%`;
+}
+
+/* ---------- Home (car hero + stop icons) ---------- */
+function renderHome(){
+  const stops = DAYS.map(d=>{
+    const p = tappeProgress(d);
+    return `
+    <button class="stop-icon" style="--pin-color:${d.accent}" data-goday="${d.id}">
+      <span class="circle">${d.emoji}</span>
+      <span class="lbl">${d.title}</span>
+      <span class="dt">${d.date}</span>
+      ${p.total?`<span class="prog">${p.done}/${p.total}</span>`:''}
+    </button>`;
+  }).join('');
+
+  document.getElementById('main').innerHTML = `
+    <div class="home-head">
+      <div class="day-eyebrow" style="text-align:center;">18–22 agosto 2026</div>
+      <div class="day-title" style="font-size:26px; text-align:center;">Il vostro giro d'Abruzzo</div>
+    </div>
+
+    <div class="car-hero">
+      <img src="car.jpg" alt="Ale e Gaietta in viaggio">
+    </div>
+
+    <div class="stops-label">Tocca una tappa</div>
+    <div class="stops-row">${stops}</div>
+
+    <button class="journal-cta" id="journalCta" style="margin-top:26px;">
+      <span class="jc-emoji">📔</span>
+      <span class="jc-txt">
+        <b>Diario di viaggio</b>
+        <div>Foto, note e i posti che vi sono piaciuti di più</div>
+      </span>
+      <span class="jc-arrow">→</span>
+    </button>
+  `;
+  document.querySelectorAll('[data-goday]').forEach(el=> el.addEventListener('click', ()=> goToDay(parseInt(el.dataset.goday))));
+  document.getElementById('journalCta').addEventListener('click', goToJournal);
+}
+
+/* ---------- Journal ---------- */
+const JOURNAL_TYPES = {
+  luogo:{label:"Luogo preferito", emoji:"📍"},
+  ristorante:{label:"Ristorante", emoji:"🍽️"},
+  esperienza:{label:"Esperienza", emoji:"✨"},
+  nota:{label:"Nota generale", emoji:"📝"},
+};
+
+function renderJournal(){
+  const entries = [...(state.journal||[])].sort((a,b)=> (b.at||'').localeCompare(a.at||''));
+  const dayOptions = DAYS.map(d=>`<option value="${d.id}">${d.date} · ${d.title}</option>`).join('');
+
+  const entriesHtml = entries.length ? entries.map(e=>{
+    const type = JOURNAL_TYPES[e.type] || JOURNAL_TYPES.nota;
+    const day = DAYS.find(d=> d.id === e.dayId);
+    const dt = e.at ? new Date(e.at) : null;
+    const when = dt ? dt.toLocaleDateString('it-IT',{day:'2-digit',month:'short'}) + ' · ' + String(dt.getHours()).padStart(2,'0')+':'+String(dt.getMinutes()).padStart(2,'0') : '';
+    return `
+    <div class="journal-entry">
+      ${e.imageUrl?`<img class="je-img" src="${e.imageUrl}" alt="">`:''}
+      <div class="je-body">
+        <div class="je-tags">
+          <span class="je-type" style="background:${day?day.accent:'var(--gold)'}">${type.emoji} ${type.label}</span>
+          ${day?`<span class="je-day">${day.emoji} ${day.title}</span>`:''}
+        </div>
+        ${e.title?`<div class="je-title">${e.title}</div>`:''}
+        ${e.text?`<div class="je-text">${e.text}</div>`:''}
+        <div class="je-meta">${e.author?('di '+e.author+' · '):''}${when}
+          <button class="je-del" data-delid="${e.id}">Elimina</button>
+        </div>
+      </div>
+    </div>`;
+  }).join('') : `<div class="save-hint" style="padding:10px 0;">Ancora nessun ricordo aggiunto. Iniziate voi!</div>`;
+
+  document.getElementById('main').innerHTML = `
+    <div class="home-head">
+      <div class="day-eyebrow">Diario di viaggio</div>
+      <div class="day-title" style="font-size:26px;">I vostri ricordi</div>
+      <div class="day-route">Foto, luoghi e ristoranti preferiti, esperienze da ricordare.</div>
+    </div>
+
+    <div class="journal-form">
+      <div class="form-row">
+        <label>Tipo</label>
+        <select id="jType" class="jsel">
+          ${Object.entries(JOURNAL_TYPES).map(([k,v])=>`<option value="${k}">${v.emoji} ${v.label}</option>`).join('')}
+        </select>
+      </div>
+      <div class="form-row">
+        <label>Giorno (facoltativo)</label>
+        <select id="jDay" class="jsel">
+          <option value="">Generale / nessun giorno</option>
+          ${dayOptions}
+        </select>
+      </div>
+      <div class="form-row">
+        <label>Titolo</label>
+        <input type="text" id="jTitle" placeholder="Es. Rifugio Duca degli Abruzzi">
+      </div>
+      <div class="form-row">
+        <label>Racconto / commento</label>
+        <textarea class="note" id="jText" placeholder="Cosa vi è piaciuto, cosa consigliereste..."></textarea>
+      </div>
+      <div class="form-row">
+        <label>Foto (facoltativa)</label>
+        <input type="file" id="jPhoto" accept="image/*" capture="environment">
+        <div class="form-hint" id="jPhotoHint"></div>
+      </div>
+      <button class="form-btn" id="jAddBtn">Aggiungi al diario</button>
+      <div class="save-hint" id="jStatus" style="margin-top:8px;"></div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Ricordi aggiunti <span class="n">${entries.length}</span></div>
+      <div class="journal-list">${entriesHtml}</div>
+    </div>
+  `;
+
+  document.getElementById('jAddBtn').addEventListener('click', addJournalEntry);
+  document.querySelectorAll('[data-delid]').forEach(b=> b.addEventListener('click', ()=>{
+    if(!confirm('Eliminare questo ricordo?')) return;
+    state.journal = state.journal.filter(e=> e.id !== b.dataset.delid);
+    saveDebounced();
+    renderJournal();
+  }));
+}
+
+async function addJournalEntry(){
+  const type = document.getElementById('jType').value;
+  const dayId = document.getElementById('jDay').value ? parseInt(document.getElementById('jDay').value) : null;
+  const title = document.getElementById('jTitle').value.trim();
+  const text = document.getElementById('jText').value.trim();
+  const fileInput = document.getElementById('jPhoto');
+  const status = document.getElementById('jStatus');
+  const btn = document.getElementById('jAddBtn');
+
+  if(!title && !text && !(fileInput.files && fileInput.files[0])){
+    status.textContent = 'Aggiungi almeno un titolo, un testo o una foto.';
+    return;
+  }
+  if(!ghToken()){
+    status.textContent = 'Connettiti a GitHub (Menù → Collega GitHub) per salvare i ricordi online.';
+    return;
+  }
+
+  btn.disabled = true;
+  let imageUrl = null;
+  try{
+    if(fileInput.files && fileInput.files[0]){
+      status.textContent = 'Caricamento foto...';
+      const base64 = await resizeImageFile(fileInput.files[0]);
+      const filename = Date.now()+'-'+Math.random().toString(36).slice(2,8)+'.jpg';
+      imageUrl = await ghUploadImage(base64, filename);
+    }
+    const entry = {
+      id: 'j'+Date.now(),
+      type, dayId, title, text, imageUrl,
+      author: ghUser()||'', at: new Date().toISOString()
+    };
+    state.journal = state.journal || [];
+    state.journal.push(entry);
+    status.textContent = 'Salvataggio...';
+    await pushSave();
+    status.textContent = 'Aggiunto ✓';
+    renderJournal();
+  }catch(e){
+    status.textContent = 'Errore: '+(e.message||'riprova');
+    btn.disabled = false;
+  }
+}
+
+function renderMain(){
+  if(currentView.type==='home') renderHome();
+  else if(currentView.type==='journal') renderJournal();
+  else renderDayView();
 }
 
 function renderAll(){
