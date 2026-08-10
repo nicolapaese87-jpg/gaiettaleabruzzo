@@ -5,14 +5,14 @@
       "pack": {},
       "packCustom": [],
       "note": "",
-      "goalText": "Dedicarsi bene a Campo Imperatore, senza aggiu"
+      "goalText": "Dedicarsi bene a Campo Imperatore, senza aggiungere borghi o attrazioni: è il modo migliore per se aprire il viaggio."
     },
     "2": {
       "tappe": {},
       "pack": {},
       "packCustom": [],
       "note": "",
-      "goalText": "La giornata bosco + acqua + gastronomia di montagna: un solo trekking, poi relax vero, senza correre da un sentiero all'altro."
+      "goalText": "La giornata bosco + acqua + gastronomia di montagna: un solo trekking, poi relax vero, senza correre da un sentiero al"
     },
     "3": {
       "tappe": {},
@@ -47,6 +47,6 @@
   "journal": [],
   "_meta": {
     "by": "Ale",
-    "at": "2026-08-10T23:52:26.828Z"
+    "at": "2026-08-10T23:54:01.471Z"
   }
 }
