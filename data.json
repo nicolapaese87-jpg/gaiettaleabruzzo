@@ -1,0 +1,52 @@
+{
+  "days": {
+    "1": {
+      "tappe": {},
+      "pack": {},
+      "packCustom": [],
+      "note": "",
+      "goalText": "Dedicarsi bene a Campo Imperatore, senza aggiungere borghi o attrazioni: è il modo migliore per aprire il viaggio."
+    },
+    "2": {
+      "tappe": {},
+      "pack": {},
+      "packCustom": [],
+      "note": "",
+      "goalText": "La giornata bosco + acqua + gastronomia di montagna: un solo trekking, poi relax vero, senza correre da un sentiero all'altro."
+    },
+    "3": {
+      "tappe": {},
+      "pack": {},
+      "packCustom": [],
+      "note": "",
+      "goalText": "La giornata più varia del viaggio: lago, trekking facile, borgo, lago verde smeraldo e canyon, tutto senza correre."
+    },
+    "4": {
+      "tappe": {},
+      "pack": {},
+      "packCustom": [],
+      "note": "",
+      "goalText": "La giornata Maiella, dedicata solo a Fara San Martino: niente Camosciara aggiunta solo per \"vedere anche quella\"."
+    },
+    "5": {
+      "tappe": {},
+      "pack": {},
+      "packCustom": [],
+      "note": "",
+      "goalText": "Una giornata lentissima: niente sveglia presto, tutto a piedi in centro, poi rientro senza fretta."
+    }
+  },
+  "pre48": {
+    "items": {},
+    "notes": ""
+  },
+  "packing": {
+    "items": {},
+    "custom": []
+  },
+  "journal": [],
+  "_meta": {
+    "by": "Ale",
+    "at": "2026-08-10T23:51:43.937Z"
+  }
+}
