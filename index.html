@@ -2,8 +2,16 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
 <title>Abruzzo · 18–22 Agosto 2026</title>
+<meta name="theme-color" content="#2F4B3C">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Abruzzo">
+<meta name="format-detection" content="telephone=no">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" href="favicon-32.png" sizes="32x32">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -33,9 +41,14 @@ body{
   background:var(--stone);
   color:var(--ink);
   font-family:'Inter',system-ui,sans-serif;
-  padding-bottom:90px;
+  padding-bottom:calc(90px + env(safe-area-inset-bottom));
   min-height:100vh;
+  -webkit-text-size-adjust:100%;
+  overscroll-behavior-y:none;
 }
+/* iOS: inputs/textareas/selects need >=16px font-size or Safari auto-zooms on focus */
+input, textarea, select{ font-size:16px; }
+button{ touch-action:manipulation; }
 .mono{font-family:'IBM Plex Mono',monospace;}
 .display{font-family:'Fraunces',serif;}
 
@@ -44,7 +57,7 @@ header.top{
   position:sticky; top:0; z-index:40;
   background:var(--pine);
   color:#F3EFE3;
-  padding:14px 16px 0 16px;
+  padding:calc(14px + env(safe-area-inset-top)) 16px 0 16px;
   box-shadow:var(--shadow);
 }
 .top-row{
@@ -378,7 +391,8 @@ select.jsel{
 .overlay-bg.open{display:flex;}
 .sheet{
   background:var(--stone); width:100%; max-width:640px; max-height:88vh; overflow-y:auto;
-  border-radius:20px 20px 0 0; padding:18px 18px 26px 18px; animation:up .22s ease-out;
+  -webkit-overflow-scrolling:touch;
+  border-radius:20px 20px 0 0; padding:18px 18px calc(26px + env(safe-area-inset-bottom)) 18px; animation:up .22s ease-out;
 }
 @keyframes up{from{transform:translateY(24px); opacity:0;} to{transform:translateY(0); opacity:1;}}
 .sheet-head{display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;}
